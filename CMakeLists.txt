@@ -5,7 +5,7 @@ include(CTest)
 enable_testing()
 
 #include_directories(MyVector/include)
-add_executable(demo1 LearningPaths/deque/judgesScore.cpp)
+add_executable(demo1 LearningPaths/STL/list/sort.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
