@@ -33,15 +33,15 @@ C++的STL（标准模板库）是C++标准库的一个组成部分，提供了�
 
 STL提供了丰富的功能，可以大大简化C++程序的开发。在使用STL时，你可以遵循一些最佳实践，例如使用迭代器而非索引进行遍历，善用算法库等，以提高代码的可读性和性能。
 
----
+## 容器
 
+### 序列容器
 
-
-## Vector
+#### Vector
 
 C++ 中的 `std::vector` 是标准模板库（STL）中的一个动态数组实现。它提供了动态大小的数组，支持高效的元素插入和删除。以下是关于 `std::vector` 的一些基本信息和用法：
 
-### 包含头文件
+##### 包含头文件
 
 在使用 `std::vector` 之前，需要包含 `<vector>` 头文件：
 
@@ -49,7 +49,7 @@ C++ 中的 `std::vector` 是标准模板库（STL）中的一个动态数组实�
 #include <vector>
 ```
 
-### 创建和初始化
+##### 创建和初始化
 
 可以使用不同的方式来创建和初始化 `std::vector`。
 
@@ -71,7 +71,7 @@ int main() {
 
 ```
 
-### 访问元素
+##### 访问元素
 
 可以使用索引访问 `std::vector` 的元素，索引从 0 开始。
 
@@ -90,8 +90,7 @@ int main() {
 
 ```
 
-
-### 添加和删除元素
+##### 添加和删除元素
 
 `std::vector` 提供了 `push_back` 和 `pop_back` 函数用于在尾部添加和删除元素。
 
@@ -119,8 +118,7 @@ int main() {
 
 ```
 
-
-### 迭代
+##### 迭代
 
 可以使用迭代器遍历 `std::vector`。
 
@@ -149,3 +147,183 @@ int main() {
 ```
 
 这只是 `std::vector` 的基本用法示例。它还提供了许多其他方法和功能，包括修改元素、清空向量、获取向量大小等。详细信息可以查阅 C++ 的文档或参考相关教程。
+
+#### list
+
+```cpp
+#include <iostream>
+#include <list>
+
+int main() {
+    // 创建一个空的 list
+    std::list<int> myList;
+
+    // 在 list 尾部添加元素
+    myList.push_back(1);
+    myList.push_back(2);
+    myList.push_back(3);
+
+    // 在 list 头部添加元素
+    myList.push_front(0);
+
+    // 使用迭代器遍历 list
+    for (auto it = myList.begin(); it != myList.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    // 在指定位置插入元素
+    auto it = std::find(myList.begin(), myList.end(), 2);
+    if (it != myList.end()) {
+        myList.insert(it, 99);
+    }
+
+    // 移除指定元素
+    myList.remove(2);
+
+    // 删除第一个元素
+    myList.pop_front();
+
+    // 删除最后一个元素
+    myList.pop_back();
+
+    // 获取 list 的大小
+    std::cout << "Size: " << myList.size() << std::endl;
+
+    // 判断 list 是否为空
+    if (myList.empty()) {
+        std::cout << "List is empty." << std::endl;
+    } else {
+        std::cout << "List is not empty." << std::endl;
+    }
+
+    return 0;
+}
+
+```
+
+#### deque
+
+```cpp
+#include <iostream>
+#include <deque>
+
+int main() {
+    // 创建一个空的 deque
+    std::deque<int> myDeque;
+
+    // 在 deque 尾部添加元素
+    myDeque.push_back(1);
+    myDeque.push_back(2);
+    myDeque.push_back(3);
+
+    // 在 deque 头部添加元素
+    myDeque.push_front(0);
+
+    // 使用迭代器遍历 deque
+    for (auto it = myDeque.begin(); it != myDeque.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+
+    // 在指定位置插入元素
+    auto it = std::find(myDeque.begin(), myDeque.end(), 2);
+    if (it != myDeque.end()) {
+        myDeque.insert(it, 99);
+    }
+
+    // 删除指定元素
+    myDeque.erase(std::remove(myDeque.begin(), myDeque.end(), 2), myDeque.end());
+
+    // 删除第一个元素
+    myDeque.pop_front();
+
+    // 删除最后一个元素
+    myDeque.pop_back();
+
+    // 获取 deque 的大小
+    std::cout << "Size: " << myDeque.size() << std::endl;
+
+    // 判断 deque 是否为空
+    if (myDeque.empty()) {
+        std::cout << "Deque is empty." << std::endl;
+    } else {
+        std::cout << "Deque is not empty." << std::endl;
+    }
+
+    return 0;
+}
+
+```
+
+#### queue
+
+```cpp
+#include <iostream>
+#include <queue>
+
+int main() {
+    // 创建一个空的队列
+    std::queue<int> myQueue;
+
+    // 入队
+    myQueue.push(1);
+    myQueue.push(2);
+    myQueue.push(3);
+
+    // 查看队头元素
+    std::cout << "Front: " << myQueue.front() << std::endl;
+
+    // 出队
+    myQueue.pop();
+
+    // 再次查看队头元素
+    std::cout << "Front after pop: " << myQueue.front() << std::endl;
+
+    // 获取队列的大小
+    std::cout << "Size: " << myQueue.size() << std::endl;
+
+    // 判断队列是否为空
+    if (myQueue.empty()) {
+        std::cout << "Queue is empty." << std::endl;
+    } else {
+        std::cout << "Queue is not empty." << std::endl;
+    }
+
+    return 0;
+}
+
+```
+
+#### stack
+
+```cpp
+#include <iostream>
+#include <stack>
+
+int main() {
+    std::stack<int> s;
+
+    // 使用push接口添加元素
+    s.push(1);
+    s.push(2);
+    s.push(3);
+
+    // 使用top接口访问栈顶元素
+    std::cout << "Top: " << s.top() << std::endl;
+
+    // 使用empty和size接口检查栈是否为空以及栈的大小
+    std::cout << "Is empty: " << (s.empty() ? "Yes" : "No") << std::endl;
+    std::cout << "Size: " << s.size() << std::endl;
+
+    // 使用pop接口移除栈顶元素
+    s.pop();
+    std::cout << "Top after pop: " << s.top() << std::endl;
+
+    return 0;
+}
+
+```
+
+
+### 关联容器
