@@ -11,6 +11,7 @@ int main()
     int a = 1;
     int b = 2;
     int c = add(a, b);
+    int c = 66;
 
     std::cout << "c = " << c << std::endl;
 
