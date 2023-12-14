@@ -5,7 +5,7 @@ include(CTest)
 enable_testing()
 
 #include_directories(MyVector/include)
-add_executable(demo1 LearningPaths/virtualfun.cpp)
+add_executable(demo1 LearningPaths/using.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

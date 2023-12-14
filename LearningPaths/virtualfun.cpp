@@ -39,6 +39,28 @@ public:
     }
 };
 
+class Base2
+{
+private:
+    int m_a;
+
+public:
+    Base2(int a) : m_a(a) { std::cout << "Base2::Base2()" << std::endl; }
+    void func1() { std::cout << "Base2::func1()" << std::endl; }
+    ~Base2() { std::cout << "Base2::~Base2()" << std::endl; }
+};
+
+class Derived3 : public Base2
+{
+private:
+    int m_b;
+
+public:
+    Derived3(int a, int b) : Base2(a), m_b(b) { std::cout << "Derived3::Derived3()" << std::endl; }
+    void func1() { std::cout << "Derived3::func1()" << std::endl; }
+    ~Derived3() { std::cout << "Derived3::~Derived3()" << std::endl; }
+};
+
 int main()
 {
 
@@ -49,6 +71,17 @@ int main()
     // p2->func1();
 
     delete p;
+    // 多态时的虚继承，基类的析构函数是虚函数，子类的析构函数会被调用，基类的析构函数也会被调用，
+    // 但是如果基类的析构函数不是虚函数，基类的析构函数不会被调用
+
+    std::cout << "---------------------" << std::endl;
+
+    Derived3 *p3 = new Derived3(1, 2);
+
+    p3->func1();
+
+    delete p3;
+    // 普通继承，基类的析构函数不是虚函数，子类和基类的析构函数都会被调用
 
     return 0;
 }
