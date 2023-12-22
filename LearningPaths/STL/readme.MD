@@ -2,36 +2,36 @@
 
 ## 简介
 
-C++的STL（标准模板库）是C++标准库的一个组成部分，提供了许多通用的模板类和函数，用于实现常见的数据结构和算法。STL旨在提高C++的代码重用性、可读性和灵活性。以下是STL中一些重要的组件：
+C++的 STL（标准模板库）是 C++标准库的一个组成部分，提供了许多通用的模板类和函数，用于实现常见的数据结构和算法。STL 旨在提高 C++的代码重用性、可读性和灵活性。以下是 STL 中一些重要的组件：
 
 1. **容器（Containers）：**
-   * **向量（Vector）：** 动态数组，支持快速的随机访问。
-   * **列表（List）：** 双向链表。
-   * **队列（Queue）：** 队列，支持先进先出（FIFO）的操作。
-   * **栈（Stack）：** 栈，支持后进先出（LIFO）的操作。
-   * **集合（Set）：** 不重复元素的集合。
-   * **映射（Map）：** 键-值对的集合。
+   - **向量（Vector）：** 动态数组，支持快速的随机访问。
+   - **列表（List）：** 双向链表。
+   - **队列（Queue）：** 队列，支持先进先出（FIFO）的操作。
+   - **栈（Stack）：** 栈，支持后进先出（LIFO）的操作。
+   - **集合（Set）：** 不重复元素的集合。
+   - **映射（Map）：** 键-值对的集合。
 2. **算法（Algorithms）：**
-   * **排序（Sort）：** `sort` 函数用于排序序列。
-   * **查找（Search）：** `find` 函数用于查找元素。
-   * **变换（Transform）：** `transform` 函数用于对序列进行变换操作。
-   * **合并（Merge）：** `merge` 函数用于合并两个有序序列。
-   * **迭代器（Iterators）：** 提供了迭代器来访问容器中的元素。
+   - **排序（Sort）：** `sort` 函数用于排序序列。
+   - **查找（Search）：** `find` 函数用于查找元素。
+   - **变换（Transform）：** `transform` 函数用于对序列进行变换操作。
+   - **合并（Merge）：** `merge` 函数用于合并两个有序序列。
+   - **迭代器（Iterators）：** 提供了迭代器来访问容器中的元素。
 3. **函数对象（Function Objects）：**
-   * **谓词（Predicates）：** 可调用对象，用于在算法中定义条件。
-   * **函数适配器（Function Adapters）：** `bind` 和 `function` 等适配器。
+   - **谓词（Predicates）：** 可调用对象，用于在算法中定义条件。
+   - **函数适配器（Function Adapters）：** `bind` 和 `function` 等适配器。
 4. **迭代器（Iterators）：**
-   * **输入迭代器（Input Iterators）：** 支持单次读取。
-   * **输出迭代器（Output Iterators）：** 支持单次写入。
-   * **前向迭代器（Forward Iterators）：** 支持单向遍历。
-   * **双向迭代器（Bidirectional Iterators）：** 支持双向遍历。
-   * **随机访问迭代器（Random Access Iterators）：** 支持随机访问。
+   - **输入迭代器（Input Iterators）：** 支持单次读取。
+   - **输出迭代器（Output Iterators）：** 支持单次写入。
+   - **前向迭代器（Forward Iterators）：** 支持单向遍历。
+   - **双向迭代器（Bidirectional Iterators）：** 支持双向遍历。
+   - **随机访问迭代器（Random Access Iterators）：** 支持随机访问。
 5. **算法时间复杂度：**
-   * 大多数STL算法都以线性对数（O(n log n)）时间运行，其中 n 是序列的大小。
+   - 大多数 STL 算法都以线性对数（O(n log n)）时间运行，其中 n 是序列的大小。
 
-👍通常迭代器作为链接容器和算法的桥梁。
+👍 通常迭代器作为链接容器和算法的桥梁。
 
-STL提供了丰富的功能，可以大大简化C++程序的开发。在使用STL时，你可以遵循一些最佳实践，例如使用迭代器而非索引进行遍历，善用算法库等，以提高代码的可读性和性能。
+STL 提供了丰富的功能，可以大大简化 C++程序的开发。在使用 STL 时，你可以遵循一些最佳实践，例如使用迭代器而非索引进行遍历，善用算法库等，以提高代码的可读性和性能。
 
 ## 容器
 
@@ -325,5 +325,165 @@ int main() {
 
 ```
 
-
 ### 关联容器
+
+#### set
+
+**`set`（集合）：**
+
+* `std::set` 是C++标准模板库（STL）提供的一种集合容器。
+* 特点：
+  * 存储唯一的元素，不允许重复。
+  * 自动排序存储的元素。
+
+```cpp
+#include <set>
+#include <iostream>
+
+int main() {
+    std::set<int> mySet = {3, 1, 4, 1, 5, 9, 2, 6};
+    for (int x : mySet) {
+        std::cout << x << " ";
+    }
+    return 0;
+}
+```
+
+```cpp
+std::set<T> mySet;           // 空集合
+std::set<T> mySet(initializer_list);  // 使用初始化列表创建集合
+
+mySet.insert(element);       // 插入元素
+
+mySet.erase(element);        // 移除指定元素
+mySet.clear();               // 移除所有元素
+
+auto it = mySet.find(element);   // 返回指向元素的迭代器
+
+for (const auto& elem : mySet) {
+    // 遍历集合中的元素
+}
+
+```
+
+#### mutiset
+
+**`multiset`（多重集合）：**
+
+* `std::multiset` 也是一个集合容器，但允许存储重复的元素。
+* 特点：
+  * 允许存储重复元素。
+  * 自动排序存储的元素。
+
+```cpp
+#include <set>
+#include <iostream>
+
+int main() {
+    std::multiset<int> myMultiset = {3, 1, 4, 1, 5, 9, 2, 6};
+    for (int x : myMultiset) {
+        std::cout << x << " ";
+    }
+    return 0;
+}
+
+```
+
+```cpp
+std::multiset<T> myMultiset;           // 空多重集合
+std::multiset<T> myMultiset(initializer_list);  // 使用初始化列表创建多重集合
+
+myMultiset.insert(element);       // 插入元素
+
+myMultiset.erase(element);        // 移除指定元素
+myMultiset.clear();               // 移除所有元素
+
+auto range = myMultiset.equal_range(element);   // 返回指向元素范围的迭代器对
+
+for (const auto& elem : myMultiset) {
+    // 遍历多重集合中的元素
+}
+```
+
+#### map
+
+**`map`（映射）：**
+
+* `std::map` 是C++ STL提供的一种关联容器，用于存储键值对。
+* 特点：
+  * 键是唯一的，每个键对应一个值。
+  * 根据键进行自动排序。
+
+```cpp
+#include <map>
+#include <iostream>
+
+int main() {
+    std::map<int, std::string> myMap = {{1, "one"}, {2, "two"}, {3, "three"}};
+    for (const auto& pair : myMap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+    return 0;
+}
+
+```
+
+```cpp
+myMap[key] = value;                  // 插入或更新键值对
+
+myMap.erase(key);                    // 移除指定键值对
+myMap.clear();                       // 移除所有键值对
+
+auto it = myMap.find(key);           // 返回指向键值对的迭代器
+
+for (const auto& pair : myMap) {
+    // 遍历映射中的键值对
+}
+
+```
+
+#### mutimap
+
+**`multimap`（多重映射）：**
+
+* `std::multimap` 也是一个关联容器，允许存储相同键的多个键值对。
+* 特点：
+  * 允许相同键对应多个值。
+  * 根据键进行自动排序。
+
+```cpp
+#include <map>
+#include <iostream>
+
+int main() {
+    std::multimap<int, std::string> myMultimap = {{1, "one"}, {2, "two"}, {1, "uno"}};
+    for (const auto& pair : myMultimap) {
+        std::cout << pair.first << ": " << pair.second << std::endl;
+    }
+    return 0;
+}
+
+```
+
+```cpp
+myMultimap.insert(std::make_pair(key, value));  // 插入键值对
+
+myMultimap.erase(key);                // 移除指定键值对
+myMultimap.clear();                   // 移除所有键值对
+
+myMultimap.erase(key);                // 移除指定键值对
+myMultimap.clear();                   // 移除所有键值对
+
+auto range = myMultimap.equal_range(key);   // 返回指向键值对范围的迭代器对
+
+for (const auto& pair : myMultimap) {
+    // 遍历多重映射中的键值对
+}
+
+```
+
+### 无序容器
+
+在每个有序容器前面+unordered_，用法基本一致
+
+例如：`unordered_map/unordered_multimap,unordered_set/unordered_multiset`
